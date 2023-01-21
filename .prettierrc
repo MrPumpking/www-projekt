@@ -1,0 +1,5 @@
+{
+  "extends": ["next", "prettier"],
+  "singleQuote": true,
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
