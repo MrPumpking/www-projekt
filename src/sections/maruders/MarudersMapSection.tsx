@@ -7,10 +7,10 @@ import type { FC } from 'react';
 import coverImg from './img/cover.webp';
 import heroImg from './img/hero.png';
 
-export const IntroSection: FC = () => {
+export const MarudersMapSection: FC = () => {
   return (
     <>
-      <ParallaxLayer offset={0} factor={0.6} speed={0.5}>
+      <ParallaxLayer offset={0} factor={0.6} speed={0.3}>
         <Image
           fill
           priority
@@ -19,7 +19,7 @@ export const IntroSection: FC = () => {
           className="object-cover"
         />
       </ParallaxLayer>
-      <ParallaxLayer offset={0.3} factor={0.2} speed={1.5}>
+      <ParallaxLayer offset={0.3} speed={0.5}>
         <Container className="grid place-items-center">
           <Image
             priority
@@ -30,7 +30,11 @@ export const IntroSection: FC = () => {
           />
         </Container>
       </ParallaxLayer>
-      <ParallaxLayer offset={0.6} speed={2} className="bg-bg">
+      <ParallaxLayer
+        offset={0.6}
+        speed={0.1}
+        className="bg-gradient-to-b from-bg/90 to-bg"
+      >
         <TextSection title="The Marauder’s Map">
           <Paragraph>
             Perhaps no students (even including Harry Potter, Ron Weasley,

@@ -1,9 +1,10 @@
-import { Navbar } from '@/components/navbar/Navbar';
-import { OffCanvas } from '@/components/offcanvas/OffCanvas';
-import { OffCanvasProvider } from '@/components/offcanvas/useOffCanvas';
+import { DailyProphetSection } from '@/sections/dailyprophet/DailyProphetSection';
+import { DementorsSection } from '@/sections/dementors/DementorsSection';
+import { HufflepuffSection } from '@/sections/hufflepuff/HufflepuffSection';
+import { KingsCrossSection } from '@/sections/kingscross/KingsCrossSection';
+import { MarudersMapSection } from '@/sections/maruders/MarudersMapSection';
+import { Parallax } from '@react-spring/parallax';
 import type { FC } from 'react';
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import { IntroSection } from '@/sections/intro/IntroSection';
 
 const LandingPage: FC = () => {
   // return (
@@ -16,11 +17,12 @@ const LandingPage: FC = () => {
   // );
 
   return (
-    <Parallax pages={2} style={{ top: '0', left: '0' }}>
-      <IntroSection />
-      <ParallaxLayer offset={1.2} speed={2.5} style={{ background: 'blue' }}>
-        <p>parallax 2</p>
-      </ParallaxLayer>
+    <Parallax pages={6} style={{ top: '0', left: '0' }}>
+      <MarudersMapSection />
+      <DementorsSection />
+      <KingsCrossSection />
+      <HufflepuffSection />
+      <DailyProphetSection />
     </Parallax>
   );
 };
