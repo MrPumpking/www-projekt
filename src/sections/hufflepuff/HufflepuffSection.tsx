@@ -1,17 +1,20 @@
-import { Container } from '@/components/container/Container';
 import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
 import { ParallaxLayer } from '@react-spring/parallax';
 import Image from 'next/image';
 import type { FC } from 'react';
+import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
 // import heroImg from './img/hero.png';
 
 export const HufflepuffSection: FC = () => {
+  const { ref } = useSectionListener('hufflepuff');
+
   return (
     <>
       <ParallaxLayer offset={3.5} factor={0.6} speed={0.3}>
         <Image
+          ref={ref}
           fill
           src={coverImg}
           alt="Intro cover"
@@ -30,11 +33,7 @@ export const HufflepuffSection: FC = () => {
           />
         </Container>
       </ParallaxLayer> */}
-      <ParallaxLayer
-        offset={3.99}
-        speed={0.1}
-        className="bg-gradient-to-b from-bg/90 to-bg"
-      >
+      <ParallaxLayer offset={3.99} speed={0.1} className="bg-bg">
         <TextSection title="Hufflepuff Common Room">
           <Paragraph>
             The Hufflepuff common room is entered from the same corridor as the

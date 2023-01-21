@@ -1,17 +1,20 @@
-import { Container } from '@/components/container/Container';
 import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
 import { ParallaxLayer } from '@react-spring/parallax';
 import Image from 'next/image';
 import type { FC } from 'react';
+import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
 // import heroImg from './img/hero.png';
 
 export const KingsCrossSection: FC = () => {
+  const { ref } = useSectionListener('kingscross');
+
   return (
     <>
       <ParallaxLayer offset={2.4} factor={0.6} speed={0.3}>
         <Image
+          ref={ref}
           fill
           src={coverImg}
           alt="Intro cover"
@@ -30,11 +33,7 @@ export const KingsCrossSection: FC = () => {
           />
         </Container>
       </ParallaxLayer> */}
-      <ParallaxLayer
-        offset={2.9}
-        speed={0.1}
-        className="bg-gradient-to-b from-bg/90 to-bg"
-      >
+      <ParallaxLayer offset={2.9} speed={0.1} className="bg-bg">
         <TextSection title="King’s Cross Station">
           <Paragraph>
             When Ottaline Gambol commandeered a Muggle train to serve as the new

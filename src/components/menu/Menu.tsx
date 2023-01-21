@@ -20,11 +20,11 @@ export const Menu: FC<MenuProps> = ({ dir = 'vertical', className }) => {
         className
       )}
     >
-      <MenuLink>Section 1</MenuLink>
-      <MenuLink>Section 2</MenuLink>
-      <MenuLink>Section 3</MenuLink>
-      <MenuLink>Section 4</MenuLink>
-      <MenuLink>Section 5</MenuLink>
+      <MenuLink section="maruders">Maruder&lsquo;s Map</MenuLink>
+      <MenuLink section="dementors">Dementors</MenuLink>
+      <MenuLink section="kingscross">King&lsquo;s Cross Station</MenuLink>
+      <MenuLink section="hufflepuff">Hufflepuff</MenuLink>
+      <MenuLink section="dailyprophet">Daily Prophet</MenuLink>
     </ul>
   );
 };

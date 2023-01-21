@@ -3,15 +3,19 @@ import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
 import { ParallaxLayer } from '@react-spring/parallax';
 import Image from 'next/image';
-import type { FC } from 'react';
+import { FC } from 'react';
+import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
 import heroImg from './img/hero.png';
 
 export const MarudersMapSection: FC = () => {
+  const { ref } = useSectionListener('maruders');
+
   return (
     <>
       <ParallaxLayer offset={0} factor={0.6} speed={0.3}>
         <Image
+          ref={ref}
           fill
           priority
           src={coverImg}
@@ -30,11 +34,7 @@ export const MarudersMapSection: FC = () => {
           />
         </Container>
       </ParallaxLayer>
-      <ParallaxLayer
-        offset={0.6}
-        speed={0.1}
-        className="bg-gradient-to-b from-bg/90 to-bg"
-      >
+      <ParallaxLayer offset={0.6} speed={0.1} className="bg-bg">
         <TextSection title="The Marauder’s Map">
           <Paragraph>
             Perhaps no students (even including Harry Potter, Ron Weasley,

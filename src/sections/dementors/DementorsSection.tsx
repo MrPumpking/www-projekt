@@ -1,18 +1,21 @@
-import { Container } from '@/components/container/Container';
 import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
 import { ParallaxLayer } from '@react-spring/parallax';
 import Image from 'next/image';
 import type { FC } from 'react';
+import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
 import dementorImg from './img/dementor.png';
 import patronusImg from './img/patronus.png';
 
 export const DementorsSection: FC = () => {
+  const { ref } = useSectionListener('dementors');
+
   return (
     <>
       <ParallaxLayer offset={1.4} factor={0.6} speed={0.3}>
         <Image
+          ref={ref}
           fill
           src={coverImg}
           alt="Intro cover"
@@ -31,7 +34,7 @@ export const DementorsSection: FC = () => {
           />
         </div>
       </ParallaxLayer>
-      <ParallaxLayer offset={1.7} speed={0.9}>
+      <ParallaxLayer offset={1.7} speed={1.5}>
         <div className="flex justify-end pr-32">
           <Image
             width={600}
@@ -42,11 +45,7 @@ export const DementorsSection: FC = () => {
           />
         </div>
       </ParallaxLayer>
-      <ParallaxLayer
-        offset={1.9}
-        speed={0.1}
-        className="bg-gradient-to-b from-bg/90 to-bg"
-      >
+      <ParallaxLayer offset={1.9} speed={0.1} className="bg-bg">
         <TextSection title="Dementors and Chocolate">
           <Paragraph>
             The mood-enhancing properties of chocolate are well known in both

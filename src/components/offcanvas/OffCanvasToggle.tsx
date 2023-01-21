@@ -21,7 +21,7 @@ export const OffCanvasToggle: FC<OffCanvasToggleProps> = ({ className }) => {
       onClick={() => setOpen(true)}
     >
       <div className="tham-box">
-        <div className="tham-inner" />
+        <div className="tham-inner bg-text" />
       </div>
     </button>
   );

@@ -1,17 +1,20 @@
-import { Container } from '@/components/container/Container';
 import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
 import { ParallaxLayer } from '@react-spring/parallax';
 import Image from 'next/image';
 import type { FC } from 'react';
+import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
 // import heroImg from './img/hero.png';
 
 export const DailyProphetSection: FC = () => {
+  const { ref } = useSectionListener('dailyprophet');
+
   return (
     <>
       <ParallaxLayer offset={4.8} factor={0.6} speed={0.3}>
         <Image
+          ref={ref}
           fill
           src={coverImg}
           alt="Intro cover"
@@ -30,11 +33,7 @@ export const DailyProphetSection: FC = () => {
           />
         </Container>
       </ParallaxLayer> */}
-      <ParallaxLayer
-        offset={5.2}
-        speed={0.1}
-        className="bg-gradient-to-b from-bg/90 to-bg"
-      >
+      <ParallaxLayer offset={5.2} speed={0.1} className="bg-bg">
         <TextSection title="The Daily Prophet">
           <Paragraph>
             There is only one wizarding newspaper in Britain, discounting such

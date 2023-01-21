@@ -14,7 +14,7 @@ export const Container: FC<PropsWithChildren<ContainerProps>> = ({
   return (
     <div
       className={cs(
-        'container mx-auto',
+        'container mx-auto px-4',
         { 'max-w-text': variant === 'text' },
         className
       )}

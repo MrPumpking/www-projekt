@@ -9,7 +9,7 @@ module.exports = {
         serif: ['var(--font-playfair)', ...fontFamily.serif],
       },
       height: {
-        navbar: '64px',
+        navbar: '72px',
       },
       width: {
         offcanvas: '256px',
@@ -17,9 +17,15 @@ module.exports = {
       colors: {
         bg: '#10141B',
         text: '#FAF6F0',
+        navbar: '#10141B',
       },
       maxWidth: {
         text: '810px',
+      },
+      zIndex: {
+        navbar: 100,
+        'offcanvas-backdrop': 200,
+        offcanvas: 300,
       },
     },
   },
