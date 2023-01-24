@@ -1,3 +1,4 @@
+import { Container } from '@/components/container/Container';
 import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
 import { Layer } from '@/config/parallax.config';
@@ -7,7 +8,7 @@ import type { FC } from 'react';
 import { useParallaxConfig } from '../useParallaxConfig';
 import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
-// import heroImg from './img/hero.png';
+import wandImg from './img/wand.webp';
 
 export const DailyProphetSection: FC = () => {
   const { ref } = useSectionListener('dailyprophet');
@@ -28,17 +29,17 @@ export const DailyProphetSection: FC = () => {
           placeholder="blur"
         />
       </ParallaxLayer>
-      {/* <ParallaxLayer offset={0.3} speed={0.5}>
+      <ParallaxLayer {...config[Layer.DAILYPROPHET_WAND]}>
         <Container className="grid place-items-center">
           <Image
             priority
-            width={900}
-            src={heroImg}
+            width={700}
+            src={wandImg}
             alt="Hero"
             className="drop-shadow-2xl"
           />
         </Container>
-      </ParallaxLayer> */}
+      </ParallaxLayer>
       <ParallaxLayer
         key={`dailyprophet-text-${size}`}
         className="bg-bg"

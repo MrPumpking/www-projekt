@@ -70,10 +70,10 @@ const SECTION_TO_OFFSET: Record<ScreenSize, Record<PageSection, number>> = {
   },
   [ScreenSize.xl]: {
     maruders: 0,
-    dementors: 1.25,
-    kingscross: 2.3,
-    hufflepuff: 3.4,
-    dailyprophet: 4.63,
+    dementors: 1.5,
+    kingscross: 3,
+    hufflepuff: 4.5,
+    dailyprophet: 6,
   },
 };
 
