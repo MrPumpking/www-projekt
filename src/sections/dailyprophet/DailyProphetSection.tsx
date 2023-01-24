@@ -29,7 +29,10 @@ export const DailyProphetSection: FC = () => {
           placeholder="blur"
         />
       </ParallaxLayer>
-      <ParallaxLayer {...config[Layer.DAILYPROPHET_WAND]}>
+      <ParallaxLayer
+        key={`dailyprophet-wand-${size}`}
+        {...config[Layer.DAILYPROPHET_WAND]}
+      >
         <Container className="grid place-items-center">
           <Image
             priority
