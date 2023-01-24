@@ -1,8 +1,10 @@
 import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
+import { Layer } from '@/config/parallax.config';
 import { ParallaxLayer } from '@react-spring/parallax';
 import Image from 'next/image';
 import type { FC } from 'react';
+import { useParallaxConfig } from '../useParallaxConfig';
 import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
 import dementorImg from './img/dementor.png';
@@ -10,10 +12,14 @@ import patronusImg from './img/patronus.png';
 
 export const DementorsSection: FC = () => {
   const { ref } = useSectionListener('dementors');
+  const { config, size } = useParallaxConfig();
 
   return (
     <>
-      <ParallaxLayer offset={1.4} factor={0.6} speed={0.3}>
+      <ParallaxLayer
+        key={`dementors-bg-${size}`}
+        {...config[Layer.DEMENTORS_BG]}
+      >
         <Image
           ref={ref}
           fill
@@ -23,7 +29,10 @@ export const DementorsSection: FC = () => {
           placeholder="blur"
         />
       </ParallaxLayer>
-      <ParallaxLayer offset={1.7} speed={0.7}>
+      <ParallaxLayer
+        key={`dementors-patronus-${size}`}
+        {...config[Layer.DEMENTORS_PATRONUS]}
+      >
         <div className="pl-32">
           <Image
             width={400}
@@ -34,7 +43,10 @@ export const DementorsSection: FC = () => {
           />
         </div>
       </ParallaxLayer>
-      <ParallaxLayer offset={1.7} speed={1.5}>
+      <ParallaxLayer
+        key={`doementors-dementor-${size}`}
+        {...config[Layer.DEMENTORS_DEMENTOR]}
+      >
         <div className="flex justify-end pr-32">
           <Image
             width={600}
@@ -45,7 +57,11 @@ export const DementorsSection: FC = () => {
           />
         </div>
       </ParallaxLayer>
-      <ParallaxLayer offset={1.9} speed={0.1} className="bg-bg">
+      <ParallaxLayer
+        key={`dementors-text-${size}`}
+        className="bg-bg"
+        {...config[Layer.DEMENTORS_TEXT]}
+      >
         <TextSection title="Dementors and Chocolate">
           <Paragraph>
             The mood-enhancing properties of chocolate are well known in both

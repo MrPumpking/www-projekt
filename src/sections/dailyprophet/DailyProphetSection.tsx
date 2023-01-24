@@ -1,18 +1,24 @@
 import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
+import { Layer } from '@/config/parallax.config';
 import { ParallaxLayer } from '@react-spring/parallax';
 import Image from 'next/image';
 import type { FC } from 'react';
+import { useParallaxConfig } from '../useParallaxConfig';
 import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
 // import heroImg from './img/hero.png';
 
 export const DailyProphetSection: FC = () => {
   const { ref } = useSectionListener('dailyprophet');
+  const { config, size } = useParallaxConfig();
 
   return (
     <>
-      <ParallaxLayer offset={4.8} factor={0.6} speed={0.3}>
+      <ParallaxLayer
+        key={`dailyprophet-bg-${size}`}
+        {...config[Layer.DAILYPROPHET_BG]}
+      >
         <Image
           ref={ref}
           fill
@@ -33,7 +39,11 @@ export const DailyProphetSection: FC = () => {
           />
         </Container>
       </ParallaxLayer> */}
-      <ParallaxLayer offset={5.2} speed={0.1} className="bg-bg">
+      <ParallaxLayer
+        key={`dailyprophet-text-${size}`}
+        className="bg-bg"
+        {...config[Layer.DAILYPROPHET_TEXT]}
+      >
         <TextSection title="The Daily Prophet">
           <Paragraph>
             There is only one wizarding newspaper in Britain, discounting such

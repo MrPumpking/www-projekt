@@ -1,19 +1,22 @@
 import { Container } from '@/components/container/Container';
 import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
+import { Layer } from '@/config/parallax.config';
 import { ParallaxLayer } from '@react-spring/parallax';
 import Image from 'next/image';
 import { FC } from 'react';
+import { useParallaxConfig } from '../useParallaxConfig';
 import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
 import heroImg from './img/hero.png';
 
 export const MarudersMapSection: FC = () => {
   const { ref } = useSectionListener('maruders');
+  const { config, size } = useParallaxConfig();
 
   return (
     <>
-      <ParallaxLayer offset={0} factor={0.6} speed={0.3}>
+      <ParallaxLayer key={`maruders-bg-${size}`} {...config[Layer.MARUDERS_BG]}>
         <Image
           ref={ref}
           fill
@@ -23,7 +26,10 @@ export const MarudersMapSection: FC = () => {
           className="object-cover"
         />
       </ParallaxLayer>
-      <ParallaxLayer offset={0.3} speed={0.5}>
+      <ParallaxLayer
+        key={`maruders-hero-${size}`}
+        {...config[Layer.MARUDERS_HERO]}
+      >
         <Container className="grid place-items-center">
           <Image
             priority
@@ -34,7 +40,11 @@ export const MarudersMapSection: FC = () => {
           />
         </Container>
       </ParallaxLayer>
-      <ParallaxLayer offset={0.6} speed={0.1} className="bg-bg">
+      <ParallaxLayer
+        key={`maruders-text-${size}`}
+        className="bg-bg"
+        {...config[Layer.MARUDERS_TEXT]}
+      >
         <TextSection title="The Marauder’s Map">
           <Paragraph>
             Perhaps no students (even including Harry Potter, Ron Weasley,

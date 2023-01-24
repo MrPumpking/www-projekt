@@ -9,5 +9,14 @@ export const Paragraph: FC<PropsWithChildren<ParagraphProps>> = ({
   className,
   children,
 }) => {
-  return <p className={cs('text-xl leading-relaxed', className)}>{children}</p>;
+  return (
+    <p
+      className={cs(
+        'text-lg leading-relaxed md:text-xl md:leading-relaxed',
+        className
+      )}
+    >
+      {children}
+    </p>
+  );
 };

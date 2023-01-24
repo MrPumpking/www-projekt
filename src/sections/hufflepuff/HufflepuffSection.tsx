@@ -1,18 +1,25 @@
+import { Container } from '@/components/container/Container';
 import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
+import { Layer } from '@/config/parallax.config';
 import { ParallaxLayer } from '@react-spring/parallax';
 import Image from 'next/image';
 import type { FC } from 'react';
+import { useParallaxConfig } from '../useParallaxConfig';
 import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
-// import heroImg from './img/hero.png';
+import hogwartsImg from './img/hogwarts.png';
 
 export const HufflepuffSection: FC = () => {
   const { ref } = useSectionListener('hufflepuff');
+  const { config, size } = useParallaxConfig();
 
   return (
     <>
-      <ParallaxLayer offset={3.5} factor={0.6} speed={0.3}>
+      <ParallaxLayer
+        key={`hufflepuff-bg-${size}`}
+        {...config[Layer.HUFFLEPUFF_BG]}
+      >
         <Image
           ref={ref}
           fill
@@ -22,18 +29,25 @@ export const HufflepuffSection: FC = () => {
           placeholder="blur"
         />
       </ParallaxLayer>
-      {/* <ParallaxLayer offset={0.3} speed={0.5}>
+      <ParallaxLayer
+        key={`hufflepuff-hogwarts-${size}`}
+        {...config[Layer.HUFFLEPUFF_HOGWARTS]}
+      >
         <Container className="grid place-items-center">
           <Image
             priority
-            width={900}
-            src={heroImg}
+            width={1300}
+            src={hogwartsImg}
             alt="Hero"
             className="drop-shadow-2xl"
           />
         </Container>
-      </ParallaxLayer> */}
-      <ParallaxLayer offset={3.99} speed={0.1} className="bg-bg">
+      </ParallaxLayer>
+      <ParallaxLayer
+        key={`hufflepuff-text-${size}`}
+        className="bg-bg"
+        {...config[Layer.HUFFLEPUFF_TEXT]}
+      >
         <TextSection title="Hufflepuff Common Room">
           <Paragraph>
             The Hufflepuff common room is entered from the same corridor as the

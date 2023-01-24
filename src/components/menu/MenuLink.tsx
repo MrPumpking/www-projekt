@@ -1,6 +1,7 @@
 import type { FC, PropsWithChildren } from 'react';
 import { PageSection, useMenu } from './useMenu';
 import cs from 'clsx';
+import { useOffCanvas } from '../offcanvas/useOffCanvas';
 
 interface MenuLinkProps {
   section: PageSection;
@@ -11,6 +12,7 @@ export const MenuLink: FC<PropsWithChildren<MenuLinkProps>> = ({
   children,
 }) => {
   const { scrollTo, activeSection } = useMenu();
+  const { setOpen } = useOffCanvas();
 
   return (
     <li className="grid h-full items-center">
@@ -25,6 +27,7 @@ export const MenuLink: FC<PropsWithChildren<MenuLinkProps>> = ({
         )}
         onClick={(event) => {
           event.preventDefault();
+          setOpen(false);
           scrollTo(section);
         }}
       >

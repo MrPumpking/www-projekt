@@ -10,7 +10,12 @@ export const Heading: FC<PropsWithChildren<HeadingProps>> = ({
   children,
 }) => {
   return (
-    <h2 className={cs('font-serif text-5xl font-extrabold', className)}>
+    <h2
+      className={cs(
+        'font-serif text-3xl font-extrabold md:text-5xl',
+        className
+      )}
+    >
       {children}
     </h2>
   );

@@ -1,18 +1,25 @@
+import { Container } from '@/components/container/Container';
 import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
+import { Layer } from '@/config/parallax.config';
 import { ParallaxLayer } from '@react-spring/parallax';
 import Image from 'next/image';
 import type { FC } from 'react';
+import { useParallaxConfig } from '../useParallaxConfig';
 import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
-// import heroImg from './img/hero.png';
+import hagridImg from './img/hagrid.png';
 
 export const KingsCrossSection: FC = () => {
   const { ref } = useSectionListener('kingscross');
+  const { config, size } = useParallaxConfig();
 
   return (
     <>
-      <ParallaxLayer offset={2.4} factor={0.6} speed={0.3}>
+      <ParallaxLayer
+        key={`kingcross-bg-${size}`}
+        {...config[Layer.KINGCROSS_BG]}
+      >
         <Image
           ref={ref}
           fill
@@ -22,18 +29,25 @@ export const KingsCrossSection: FC = () => {
           placeholder="blur"
         />
       </ParallaxLayer>
-      {/* <ParallaxLayer offset={0.3} speed={0.5}>
+      <ParallaxLayer
+        key={`kingscross-hagrid-${size}`}
+        {...config[Layer.KINGSCROSS_HAGRID]}
+      >
         <Container className="grid place-items-center">
           <Image
             priority
             width={900}
-            src={heroImg}
+            src={hagridImg}
             alt="Hero"
             className="drop-shadow-2xl"
           />
         </Container>
-      </ParallaxLayer> */}
-      <ParallaxLayer offset={2.9} speed={0.1} className="bg-bg">
+      </ParallaxLayer>
+      <ParallaxLayer
+        key={`kingscross-text-${size}`}
+        className="bg-bg"
+        {...config[Layer.KINGSCROSS_TEXT]}
+      >
         <TextSection title="King’s Cross Station">
           <Paragraph>
             When Ottaline Gambol commandeered a Muggle train to serve as the new

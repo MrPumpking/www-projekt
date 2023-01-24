@@ -2,9 +2,10 @@ import { FC } from 'react';
 
 interface LogoProps {
   className?: string;
+  onClick?(): void;
 }
 
-export const Logo: FC<LogoProps> = ({ className }) => {
+export const Logo: FC<LogoProps> = ({ onClick, className }) => {
   return (
     <svg
       id="wizarding_world_logo"
@@ -12,6 +13,7 @@ export const Logo: FC<LogoProps> = ({ className }) => {
       viewBox="0 0 899.88 673.44"
       aria-labelledby="wizarding_world_logo_title_header"
       className={className}
+      onClick={onClick}
     >
       <path
         fill="currentColor"
