@@ -17,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <main className={cs(playfair.variable)}>
         <Component {...pageProps} />
+        <div className="fixed bottom-0 left-0 right-0 h-[164px] bg-gradient-to-t from-bg/90 to-transparent" />
       </main>
     </>
   );
