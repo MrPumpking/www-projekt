@@ -7,7 +7,6 @@ export enum Layer {
   MARUDERS_TEXT = 'MARUDERS_TEXT',
   DEMENTORS_BG = 'DEMENTORS_BG',
   DEMENTORS_PATRONUS = 'DEMENTORS_PATRONUS',
-  DEMENTORS_DEMENTOR = 'DEMENTORS_DEMENTOR',
   DEMENTORS_TEXT = 'DEMENTORS_TEXT',
   KINGCROSS_BG = 'KINGSCROSS_BG',
   KINGSCROSS_HAGRID = 'KINGSCROSS_HAGRID',
@@ -47,10 +46,6 @@ export const ParallaxConfig: Record<
     [Layer.DEMENTORS_PATRONUS]: {
       offset: 1.6,
       speed: 0.7,
-    },
-    [Layer.DEMENTORS_DEMENTOR]: {
-      offset: 1.6,
-      speed: 1.5,
     },
     [Layer.DEMENTORS_TEXT]: {
       offset: 1.8,
@@ -120,10 +115,6 @@ export const ParallaxConfig: Record<
       offset: 1.4,
       speed: 0.7,
     },
-    [Layer.DEMENTORS_DEMENTOR]: {
-      offset: 1.4,
-      speed: 1.5,
-    },
     [Layer.DEMENTORS_TEXT]: {
       offset: 1.7,
       speed: 0.1,
@@ -191,10 +182,6 @@ export const ParallaxConfig: Record<
     [Layer.DEMENTORS_PATRONUS]: {
       offset: 1.4,
       speed: 0.7,
-    },
-    [Layer.DEMENTORS_DEMENTOR]: {
-      offset: 1.4,
-      speed: 1.5,
     },
     [Layer.DEMENTORS_TEXT]: {
       offset: 1.7,
@@ -264,10 +251,6 @@ export const ParallaxConfig: Record<
       offset: 1.7,
       speed: 0.7,
     },
-    [Layer.DEMENTORS_DEMENTOR]: {
-      offset: 1.7,
-      speed: 1.5,
-    },
     [Layer.DEMENTORS_TEXT]: {
       offset: 1.9,
       speed: 0.1,
@@ -333,12 +316,8 @@ export const ParallaxConfig: Record<
       factor: 0.6,
     },
     [Layer.DEMENTORS_PATRONUS]: {
-      offset: 1.9,
-      speed: 0.7,
-    },
-    [Layer.DEMENTORS_DEMENTOR]: {
       offset: 1.99,
-      speed: 1,
+      speed: 0.7,
     },
     [Layer.DEMENTORS_TEXT]: {
       offset: 2.1,
@@ -363,7 +342,7 @@ export const ParallaxConfig: Record<
       speed: 0.3,
     },
     [Layer.HUFFLEPUFF_HOGWARTS]: {
-      offset: 4.65,
+      offset: 4.7,
       speed: 0.5,
     },
     [Layer.HUFFLEPUFF_TEXT]: {

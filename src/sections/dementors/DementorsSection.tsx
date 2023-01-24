@@ -1,3 +1,4 @@
+import { Container } from '@/components/container/Container';
 import { Paragraph } from '@/components/text/Paragraph';
 import { TextSection } from '@/components/text/TextSection';
 import { Layer } from '@/config/parallax.config';
@@ -7,8 +8,7 @@ import type { FC } from 'react';
 import { useParallaxConfig } from '../useParallaxConfig';
 import { useSectionListener } from '../useSectionListener';
 import coverImg from './img/cover.webp';
-import dementorImg from './img/dementor.png';
-import patronusImg from './img/patronus.png';
+import patronusImg from './img/patronus1.png';
 
 export const DementorsSection: FC = () => {
   const { ref } = useSectionListener('dementors');
@@ -33,29 +33,15 @@ export const DementorsSection: FC = () => {
         key={`dementors-patronus-${size}`}
         {...config[Layer.DEMENTORS_PATRONUS]}
       >
-        <div className="pl-32">
+        <Container className="grid place-items-center">
           <Image
-            width={400}
+            priority
+            width={900}
             src={patronusImg}
-            alt="Patronus"
+            alt="Hero"
             className="drop-shadow-2xl"
-            placeholder="blur"
           />
-        </div>
-      </ParallaxLayer>
-      <ParallaxLayer
-        key={`doementors-dementor-${size}`}
-        {...config[Layer.DEMENTORS_DEMENTOR]}
-      >
-        <div className="flex justify-end pr-32">
-          <Image
-            width={600}
-            src={dementorImg}
-            alt="Dementor"
-            className="drop-shadow-2xl"
-            placeholder="blur"
-          />
-        </div>
+        </Container>
       </ParallaxLayer>
       <ParallaxLayer
         key={`dementors-text-${size}`}
